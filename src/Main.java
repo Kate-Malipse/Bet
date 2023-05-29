@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 /*
 * Задание 1:
@@ -34,7 +35,14 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
+        System.out.printf("Here few tasks to choose:%n" +
+                "1 task: Method for calculating the sum of numbers.%n" +
+                "2 task: Output numbers from 1 to 5.%n" +
+                "3 task: Output numbers from 5 to 1.%n" +
+                "4 task: Output multiplication table for 3.%n" +
+                "5 task: Output minimum, maximum and average value of a random numbers array.%n" +
+                "6 task: Method for outputting a string in reverse order.%n");
+        System.out.println();
         System.out.print("Please enter the task number from 1 to 6: ");
 
         int taskNumber = sc.nextInt();
@@ -69,9 +77,34 @@ public class Main {
                     }
                     break;
                 case 5:
+                    Random rand = new Random();
+                    int[] numbers = new int[10];
 
+                    for(int i = 0; i < numbers.length; i++) {
+                        int randomNum = rand.nextInt(100);
+                        numbers[i] = randomNum;
+                    }
+                    int max = 0;
+                    int min = numbers[0];
+                    int sum = 0;
+                    double avg = 0;
+
+                    System.out.print("Array: ");
+
+                    for (int n: numbers) {
+                        if (n > max) max = n;
+                        if (n < min) min = n;
+                        sum += n;
+                        System.out.print(n + " ");
+                    }
+                    avg = (double) sum/numbers.length;
+
+                    System.out.printf("%nMaximum: %d, Minimum: %d, Average: %3.1f", max, min, avg);
                     break;
                 case 6:
+                    System.out.print("Please enter any string: ");
+                    String str = sc.nextLine();
+
                     break;
             }
         }
