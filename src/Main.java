@@ -65,23 +65,27 @@ public class Main {
                 System.out.print("Result of string reversal: " + reverseLine);
             }
             case 7 -> {
-                System.out.print("Please enter a number: ");
-                int n = sc.nextInt();
-                int k = 0;
-                ArrayList array = new ArrayList<>();
-                do {
-                    array.add(n);
-                    array.add(k+1);
-                    k++;
-                } while (k < 4);
+                System.out.print("Please enter the size of array: ");
+
+                Random rand = new Random();
+                int arraySize = sc.nextInt();
+                ArrayList randomArray = new ArrayList<>();
 
                 System.out.print("Generated array: ");
-                for (Object i: array) {
-                    System.out.print(i + " ");
+                for (var i = 0; i < arraySize; i++) {
+                    var value = rand.nextInt(10);
+                    randomArray.add(value);
+
+                    if (value % 2 == 0) {
+                        randomArray.add(value);
+                        System.out.print(value + " ");
+                    }
+                    System.out.print(value + " ");
                 }
-                HashSet s = MyCollection.DeleteDuplicates(array);
+
+                HashSet resultCollection = CollectionHelper.DeleteDuplicates(randomArray);
                 System.out.print("\nArray without duplicates: ");
-                for (Object j: s) {
+                for (Object j: resultCollection) {
                     System.out.print(j + " ");
                 }
             }
