@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -10,9 +12,10 @@ public class Main {
                 "3 task: Output numbers from 5 to 1.%n" +
                 "4 task: Output multiplication table for 3.%n" +
                 "5 task: Output minimum, maximum and average value of random numbers array.%n" +
-                "6 task: Method for output a string in reverse order.%n");
+                "6 task: Method for output a string in reverse order.%n" +
+                "7 task: Method returns collection without duplicates");
         System.out.println();
-        System.out.print("Please enter the task number from 1 to 6: ");
+        System.out.print("Please enter the task number from 1 to 7: ");
 
         int taskNumber = sc.nextInt();
         sc.nextLine(); // to avoid empty input
@@ -60,6 +63,27 @@ public class Main {
                 String str = sc.nextLine();
                 String reverseLine = Line.reverse(str);
                 System.out.print("Result of string reversal: " + reverseLine);
+            }
+            case 7 -> {
+                System.out.print("Please enter a number: ");
+                int n = sc.nextInt();
+                int k = 0;
+                ArrayList array = new ArrayList<>();
+                do {
+                    array.add(n);
+                    array.add(k+1);
+                    k++;
+                } while (k < 4);
+
+                System.out.print("Generated array: ");
+                for (Object i: array) {
+                    System.out.print(i + " ");
+                }
+                HashSet s = MyCollection.DeleteDuplicates(array);
+                System.out.print("\nArray without duplicates: ");
+                for (Object j: s) {
+                    System.out.print(j + " ");
+                }
             }
             default -> System.out.print("Incorrect task number");
         }
