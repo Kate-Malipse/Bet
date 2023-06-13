@@ -69,7 +69,7 @@ public class Main {
 
                 Random rand = new Random();
                 int arraySize = sc.nextInt();
-                ArrayList randomArray = new ArrayList<>();
+                ArrayList<Integer> randomArray = new ArrayList<>();
 
                 System.out.print("Generated array: ");
                 for (var i = 0; i < arraySize; i++) {
@@ -83,7 +83,7 @@ public class Main {
                     System.out.print(value + " ");
                 }
 
-                HashSet resultCollection = CollectionHelper.DeleteDuplicates(randomArray);
+                HashSet<Integer> resultCollection = CollectionHelper.DeleteDuplicates(randomArray);
                 System.out.print("\nArray without duplicates: ");
                 for (Object j: resultCollection) {
                     System.out.print(j + " ");
